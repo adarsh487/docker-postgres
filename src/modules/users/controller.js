@@ -46,16 +46,15 @@ export default {
 
   chat: async (req, res) => {
     try {
-      const { prompt } = req.body;
+      const { prompt } = req.query;
       let response = await getGeminiRes(prompt);
       if (!response.status) {
         return returnResponse(res, 200, false, {}, response.error);
       }
-
       const stream = response.data;
 
       for await (const chunk of stream) {
-        res.write(`data: ${JSON.stringify(chunk)}\n\n`); // Send each response chunk
+        res.write(`${JSON.stringify(chunk)}\n\n`); // Send each response chunk
       }
       res.end();
       // return returnResponse(res, 200, true, response.data, "Response fetched");

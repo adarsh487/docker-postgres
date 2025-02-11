@@ -2,7 +2,7 @@
 FROM node:22
 
 # Set the working directory inside the container
-WORKDIR /
+WORKDIR /src
 
 # Copy package.json and install dependencies
 COPY package.json .
@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 3009
 
 # Command to run the app
-CMD ["node", "index.js"]
+CMD ["npm", "run", "dev"]

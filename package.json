@@ -9,13 +9,16 @@
     "dev": "cross-env NODE_ENV=development nodemon src/server.js",
     "prod": "cross-env NODE_ENV=production nodemon src/server.js",
     "migration": "npx sequelize-cli migration:generate --name",
-    "db:migrate": "npx sequelize-cli db:migrate"
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "docker-build"  :"sudo docker build -t node-app .",
+    "stop-image" : "sudo docker rm"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
+    "@opensearch-project/opensearch": "^3.2.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "fetch": "^1.1.0",
@@ -25,7 +28,8 @@
     "node-fetch": "^3.3.2",
     "nodemon": "^3.1.9",
     "pg": "^8.13.1",
-    "sequelize": "^6.37.5"
+    "sequelize": "^6.37.5",
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"

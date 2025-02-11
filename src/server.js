@@ -3,6 +3,7 @@ import "./db.js";
 import appRoutes from "./routes.js";
 import morgan from "morgan";
 import fetch from "node-fetch";
+import { openSearch } from "./lib/helpers.js";
 const app = express();
 const PORT = 3009;
 global.fetch = fetch;
@@ -22,3 +23,5 @@ app.use('*',(req , res)=>{
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+// openSearch()
